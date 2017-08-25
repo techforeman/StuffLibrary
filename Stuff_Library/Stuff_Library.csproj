@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <ApplicationInsightsResourceId>/subscriptions/e5be91a5-5393-47d0-913d-92b641e9c022/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/Stuff_Library</ApplicationInsightsResourceId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +44,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.AspNet, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.AspNet.1.8.0\lib\net45\Glimpse.AspNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.Core, Version=1.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.1.8.2\lib\net45\Glimpse.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.Mvc5, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.Mvc5.1.5.3\lib\net45\Glimpse.Mvc5.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -117,15 +138,97 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Covers\1.png" />
+    <Content Include="Content\Covers\2.png" />
+    <Content Include="Content\Covers\3.png" />
+    <Content Include="Content\Covers\4.jpg" />
+    <Content Include="Content\Covers\5.png" />
+    <Content Include="Content\Covers\594358f0-3ef5-4920-b7c0-6d86c282df20.jpg" />
+    <Content Include="Content\Covers\6.png" />
+    <Content Include="Content\Covers\7.png" />
+    <Content Include="Content\Covers\8.png" />
+    <Content Include="Content\Covers\9.png" />
+    <Content Include="Content\Covers\aa9760ef-b6dc-4242-a788-2573cfc4732d.jpg" />
+    <Content Include="Content\Category-icons\alternative.png" />
+    <Content Include="Content\Category-icons\classics.png" />
+    <Content Include="Content\Category-icons\electro.png" />
+    <Content Include="Content\Category-icons\hiphop.png" />
+    <Content Include="Content\Category-icons\jazz.png" />
+    <Content Include="Content\Category-icons\metal.png" />
+    <Content Include="Content\Category-icons\other.png" />
+    <Content Include="Content\Category-icons\pop.png" />
+    <Content Include="Content\Category-icons\promos.png" />
+    <Content Include="Content\Category-icons\reagge.png" />
+    <Content Include="Content\Category-icons\rnb.png" />
+    <Content Include="Content\Category-icons\rock.png" />
+    <Content Include="Content\Images\ajax-loader.gif" />
+    <Content Include="Content\Images\ajax-loader.png" />
+    <Content Include="Content\Images\baner-main.png" />
+    <Content Include="Content\Images\bestseller.png" />
+    <Content Include="Content\Images\cart-details.png" />
+    <Content Include="Content\Images\cart.png" />
+    <Content Include="Content\Images\cart_white.png" />
+    <Content Include="Content\Images\fb-login.png" />
+    <Content Include="Content\Images\fb-share.png" />
+    <Content Include="Content\Images\fb_white.png" />
+    <Content Include="Content\Images\footer-cd.png" />
+    <Content Include="Content\Images\google-login.png" />
+    <Content Include="Content\Images\home-small.png" />
+    <Content Include="Content\Images\icons-18-black.png" />
+    <Content Include="Content\Images\icons-18-white.png" />
+    <Content Include="Content\Images\icons-36-black.png" />
+    <Content Include="Content\Images\icons-36-white.png" />
+    <Content Include="Content\Images\new.png" />
+    <Content Include="Content\Images\searchlogo.png" />
+    <Content Include="Content\Images\spodigly-logo-main.png" />
+    <Content Include="Content\Images\twitter-share.png" />
+    <Content Include="Content\Images\upload.png" />
+    <Content Include="Content\Site-prototype.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Prototype\Cart.html" />
+    <Content Include="Prototype\Login-placeholder.html" />
+    <Content Include="Prototype\Mail1.html" />
+    <Content Include="Prototype\Mail2.html" />
+    <Content Include="Prototype\Main.html" />
+    <Content Include="Prototype\OrdersList.html" />
+    <Content Include="Prototype\Product-details.html" />
+    <Content Include="Prototype\ProductList.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
+    <Compile Include="DAL\StoreContext.cs" />
+    <Compile Include="DAL\StoreInitializer.cs" />
+    <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\AppConfig.cs" />
+    <Compile Include="Infrastructure\UrlHelpers.cs" />
+    <Compile Include="Migrations\201708092131485_InitialCreate.cs" />
+    <Compile Include="Migrations\201708092131485_InitialCreate.Designer.cs">
+      <DependentUpon>201708092131485_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708092140239_AddedNewArrivals.cs" />
+    <Compile Include="Migrations\201708092140239_AddedNewArrivals.Designer.cs">
+      <DependentUpon>201708092140239_AddedNewArrivals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708190823026_RemoveIsNewRemove.cs" />
+    <Compile Include="Migrations\201708190823026_RemoveIsNewRemove.Designer.cs">
+      <DependentUpon>201708190823026_RemoveIsNewRemove.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -133,6 +236,17 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_StoreLayout.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Kontakt.cshtml" />
+    <Content Include="Views\Home\Onas.cshtml" />
+    <Content Include="Views\Home\Regulamin.cshtml" />
+    <Content Include="Views\Home\Odbior.cshtml" />
+    <Content Include="Views\Store\List.cshtml" />
+    <Content Include="Views\Store\Details.cshtml" />
+    <Content Include="Views\Store\_CategoryMenu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -142,8 +256,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201708092131485_InitialCreate.resx">
+      <DependentUpon>201708092131485_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708092140239_AddedNewArrivals.resx">
+      <DependentUpon>201708092140239_AddedNewArrivals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708190823026_RemoveIsNewRemove.resx">
+      <DependentUpon>201708190823026_RemoveIsNewRemove.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,72 @@
+﻿@using Stuff_Library.Infrastructure;
+@model Stuff_Library.ViewModels.HomeViewModel
+@{
+	ViewBag.Title = "Witaj w Stuff Library";
+}
+
+
+
+<nav class="genres-horizontal">
+	<ul>
+		@foreach (var category in Model.Categories)
+		{
+			<li>
+				<a href="@Url.Action("List", "Store", new { categoryname = category.Name.ToLower()})"
+				   style="background-image: url(@Url.CategoryIconPath(category.IconFilename)); ">
+					@category.Name
+
+				</a>
+			</li>
+		}
+
+
+	</ul>
+
+</nav>
+
+<section>
+	<ul class="ThreeColumnsCoversList large-cover-list">
+		@foreach (var newArrival in Model.NewArrivals)
+		{
+
+
+			<li>
+				<article>
+					<a class="addtocartlink" href="@Url.Action("AddToCart", "Cart", new { id = newArrival.CourseID})">
+						<img src="../Content/Images/cart.png" />
+					</a>
+					<a class="productdetailslink" href="@Url.Action("Details", "Store", new { id = newArrival.CourseID})">
+						<div class="newFlag"></div>
+						<img class="album-cover" src="@Url.CoursIconPath(newArrival.CovertFileName)" />
+						<h1>
+							@newArrival.AuthorName - @newArrival.CourseTitle
+						</h1>
+					</a>
+				</article>
+			</li>
+		}
+</section>
+
+<section>
+	<ul class="ThreeColumnsCoversList large-cover-list">
+		@foreach (var bestVoted in Model.BestVoted)
+			{
+
+				<li>
+					<article>
+						<a class="addtocartlink" href="@Url.Action("AddToCart", "Cart", new { id = bestVoted.CourseID})">
+							<img src="../Content/Images/cart.png" />
+						</a>
+						<a class="productdetailslink" href="@Url.Action("Details", "Store", new { id = bestVoted.CourseID})">
+							<div class="bestsellerFlag"></div>
+							<img class="album-cover" src="@Url.CoursIconPath(bestVoted.CovertFileName)" />
+							<h1>
+								@bestVoted.AuthorName - @bestVoted.CourseTitle
+							</h1>
+						</a>
+					</article>
+				</li>
+			}
+	</ul>
+</section>
+
