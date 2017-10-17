@@ -16,6 +16,7 @@ namespace Stuff_Library.Models
 		public string LastName { get; set; }
 		public string Email { get; set; }
 		public string Comment { get; set; }
+		
 		public DateTime DateCreated { get; set; }
 		public OrderState OrderState { get; set; }
 

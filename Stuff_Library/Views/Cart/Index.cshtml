@@ -1,0 +1,112 @@
+﻿@model Stuff_Library.ViewModels.CartViewModel
+@using Stuff_Library.Infrastructure
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_StoreLayout.cshtml";
+}
+
+<div id="productlist-content">
+	@Html.Action("CategoryMenu", "Store")
+	<div id="productlist-rightsection">
+		<div id="breadcrumb-section">
+			<img src="../Content/Images/home-small.png" />
+			<a href="nav">
+				@Html.MvcSiteMap().SiteMapPath()
+			</a>
+		</div>
+
+		<section class="content-section">
+			<div class="section-header" style="margin-bottom: 0px;">
+				<h1>Twój koszyk</h1>
+			</div>
+
+			<table id="cart-table">
+				@foreach (var carItem in Model.CartItems)
+				{
+
+					<tr id="cart-row-@carItem.Course.CourseID">
+						<td>
+							<a href="@Url.Action("Details","Store", new{ id=carItem.Course.CourseID })">
+								<img src="@Url.Content(Url.CoursIconPath(carItem.Course.CovertFileName))" />
+							</a>
+						</td>
+						<td><a href="@Url.Action("Details","Store", new{ id=carItem.Course.CourseID })">@carItem.Course.CourseTitle</a></td>
+						<td>Ilość: <span id="cart-item-count-@carItem.Course.CourseID">@carItem.Quantity</span></td>
+						<td>-</td>
+						<td><a class="removeProduct" data-id="@carItem.Course.CourseID" href="#">Usuń</a></td>
+					</tr>
+				}
+
+				@*<tr id="cart-empty-message" @if (Model.CartItems != null && Model.CartItems.Count > 0) { <text> class="hidden" </text> }
+					<td>Twój koszyk jest pusty. Warto dodać coś do niego.</td>
+				</tr>*@
+
+
+			</table>
+
+			<div id="total-price" style="">
+				Razem: 59 zł
+			</div>
+
+			<div class="section-button-container">
+				<a class="button-link" href="">Kontynuuj zakupy</a>
+				@if (Model.CartItems.Count > 0)
+				{
+					<a class="button-link" id="cart-button-checkout" href="@Url.Action("Checkout", "Cart")">Zamów</a>
+				}
+
+			</div>
+
+		</section>
+
+
+
+	</div>
+</div>
+@section ScriptsBottom {
+
+	@System.Web.Optimization.Scripts.Render("~/bundles/jquery")
+<script type="text/javascript">
+
+    $(function () {
+        $(".removeProduct").click(function () {
+
+            var recordToDelete = $(this).attr("data-id");
+
+            if (recordToDelete != '') {
+
+                // Send post request with AJAX
+                $.post("/Cart/RemoveFromCart", { "courseID": recordToDelete },
+                    function (response) {
+                        // Success
+                        if (response.RemovedItemCount == 0) {
+
+                            $('#cart-row-' + response.RemoveItemId).fadeOut('slow', function () {
+                                if (response.CartItemsCount == 0) {
+                                    $("#cart-empty-message").removeClass("hidden");
+                                }
+                            });
+                        } else {
+                            $('#cart-item-count-' + response.RemoveItemId).text(response.RemovedItemCount);
+                        }
+
+                        if (response.CartItemsCount == 0) {
+                            $('#cart-button-checkout').addClass('hidden');
+                            $('#total-price').addClass('invisible');
+                        }
+
+                        $('#total-price-value').text(response.CartTotal);
+                        $('#cart-header-items-count').text(response.CartItemsCount);
+
+                    });
+
+                return false;
+            }
+        });
+
+    });
+
+</script>
+}
+
+

@@ -13,7 +13,6 @@ namespace Stuff_Library.Models
 		
 		public virtual Course Course { get; set; }
 		public virtual Order Order { get; set; }
-
-
+		
 	}
 }

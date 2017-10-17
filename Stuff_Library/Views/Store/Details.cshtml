@@ -1,8 +1,66 @@
 ﻿
+@model Stuff_Library.Models.Course
+	@using Stuff_Library.Infrastructure
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_StoreLayout.cshtml";
 }
 
-<h2>Details</h2>
+<div id="productlist-content">
+	@Html.Action("CategoryMenu")
+	<div id="productlist-rightsection">
+		<div id="breadcrumb-section">
+			<img src="../Content/Images/home-small.png" />
+			<a href="nav">
+				@Html.MvcSiteMap().SiteMapPath()
+			</a>
+		</div>
+
+
+		<section id="product-details-section">
+			<div id="product-details-left">
+
+				<img src="@Url.CoursIconPath(Model.CovertFileName)" />
+
+				<div id="product-details-share">
+					<a href="fbshare"></a>
+					<div></div>
+					<a href="twshare"></a>
+				</div>
+
+			</div>
+
+			<div id="product-details-right">
+				<div id="product-details-names">
+
+					<h1>
+						@Model.CourseTitle
+					</h1>
+
+					<h2>
+						@Model.AuthorName
+					</h2>
+
+				</div>
+
+				<div id="product-details-price">
+					<div>
+						@Model.Votes<span>votes</span>
+					</div>
+					<a href="@Url.Action("AddToCart", "Cart", new { id = Model.CourseID})"></a>
+				</div>
+
+				<div id="product-details-description">
+					@Model.Description
+				</div>
+
+				<div id="product-details-info">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce.
+				</div>
+			</div>
+
+		</section>
+
+	</div>
+</div>
 

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Stuff_Library.Models.Course>
+@using Stuff_Library.Infrastructure
+
+
+	<div id="productlist-section">
+		<ul class="ThreeColumnsCoversList small-cover-list">
+			@foreach (var course in Model)
+			{
+
+				<li>
+					<article>
+						<a class="addtocartlink" href="@Url.Action("AddToCart", "Cart", new {id = course.CourseID })">
+							<img src="@Url.Content("~/Content/Images/cart.png")" alt="Dodaj do zamówienia" />
+						</a>
+						@if (course.IsBestVoted)
+						{
+							<div class="bestsellerFlag"> </div>
+						}
+
+						<a class="productdetailslink" href="@Url.Action("Details", "Store", new { id = course.CourseID})">
+							<img class="album-cover" src="@Url.CoursIconPath(course.CovertFileName)" />
+							<h1>
+								@course.CourseTitle - @course.AuthorName
+							</h1>
+						</a>
+					</article>
+				</li>
+			}
+
+		</ul>
+	</div>
+
+
