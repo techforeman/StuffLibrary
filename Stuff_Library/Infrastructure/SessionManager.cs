@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.SessionState;
 
-namespace SpodIglyMVC.Infrastructure
+namespace Stuff_Library.Infrastructure
 {
 	public class SessionManager : ISessionManager
 	{

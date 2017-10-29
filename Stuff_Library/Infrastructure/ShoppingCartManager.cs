@@ -43,7 +43,7 @@ namespace Stuff_Library.Infrastructure
 					{
 						Course = courseToAdd,
 						Quantity = 1,
-						
+
 					};
 
 					cart.Add(newCartItem);
@@ -129,8 +129,8 @@ namespace Stuff_Library.Infrastructure
 				var newOrderItem = new OrderItem()
 				{
 					CourseID = cartItem.Course.CourseID,
-					
-					
+
+
 				};
 
 				cartTotal += (cartItem.Quantity);
@@ -138,7 +138,7 @@ namespace Stuff_Library.Infrastructure
 				newOrder.OrderItem.Add(newOrderItem);
 			}
 
-			
+
 
 			this.db.SaveChanges();
 
