@@ -17,18 +17,16 @@
 <body>
 	<header>
 		<div style="overflow: hidden;">
-			<a id="facebook-header" href="">
-				DOŁĄCZ DO 1500 FANÓW NA FB
-			</a>
+			
 
 			<a id="cart-header-link" href="">
-				KOSZYK (<span id="cart-header-items-count">@Html.Action("GetCartItemsCount","Cart")</span>)
+				KOSZYK <span id="cart-header-items-count"></span>  
 				<span id="cart-header-logo"></span>
 			</a>
 			@Html.Partial("_LoginPartial")
 		</div>
 		<a id="main-header-logo" href="@Url.Content("~/")">
-			<img src="../Content/Images/spodigly-logo-main.png" class="center" />
+			<img src="../Content/Images/stuffLibrary-logo-main.png" class="center" />
 		</a>
 	</header>
 

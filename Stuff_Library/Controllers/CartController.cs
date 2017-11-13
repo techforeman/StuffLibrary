@@ -50,7 +50,7 @@ namespace Stuff_Library.Controllers
 
 		public ActionResult Index()
 		{
-			
+
 			var cartItems = shoppingCartManager.GetCart();
 			var cartTotalPrice = shoppingCartManager.GetCartTotalPrice();
 
@@ -61,7 +61,7 @@ namespace Stuff_Library.Controllers
 
 		public ActionResult AddToCart(int id)
 		{
-			
+
 			shoppingCartManager.AddToCart(id);
 			return RedirectToAction("Index", "Cart");
 		}
@@ -70,12 +70,17 @@ namespace Stuff_Library.Controllers
 		public int GetCartItemsCount()
 		{
 
-			return shoppingCartManager.GetCartItemsCount();
+
+			//  shoppingCartManager.GetCartItemsCount();
+
+			return 0;
+
+
 		}
 
 		public ActionResult RemoveFromCart(int courseId)
 		{
-			
+
 
 			int itemCount = shoppingCartManager.RemoveFromCart(courseId);
 			int cartItemsCount = shoppingCartManager.GetCartItemsCount();
@@ -104,7 +109,7 @@ namespace Stuff_Library.Controllers
 					FirstName = user.UserData.FirstName,
 					LastName = user.UserData.LastName,
 					Email = user.UserData.Email
-					
+
 				};
 
 				return View(order);
@@ -118,7 +123,7 @@ namespace Stuff_Library.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				
+
 
 				// Get user
 				var userId = User.Identity.GetUserId();
@@ -135,10 +140,10 @@ namespace Stuff_Library.Controllers
 				// Empty cart
 				shoppingCartManager.EmptyCart();
 
-				
 
 
-				
+
+
 
 				return RedirectToAction("OrderConfirmation");
 			}

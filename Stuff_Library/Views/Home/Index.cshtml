@@ -30,20 +30,20 @@
 		{
 
 
-			<li>
-				<article>
-					<a class="addtocartlink" href="@Url.Action("AddToCart", "Cart", new { id = newArrival.CourseID})">
-						<img src="../Content/Images/cart.png" />
-					</a>
-					<a class="productdetailslink" href="@Url.Action("Details", "Store", new { id = newArrival.CourseID})">
-						<div class="newFlag"></div>
-						<img class="album-cover" src="@Url.CoursIconPath(newArrival.CovertFileName)" />
-						<h1>
-							@newArrival.AuthorName - @newArrival.CourseTitle
-						</h1>
-					</a>
-				</article>
-			</li>
+		<li>
+			<article>
+				<a class="addtocartlink" href="@Url.Action("AddToCart", "Cart", new { id = newArrival.CourseID})">
+					<img src="../Content/Images/cart.png" />
+				</a>
+				<a class="productdetailslink" href="@Url.Action("Details", "Store", new { id = newArrival.CourseID})">
+					<div class="newFlag"></div>
+					<img class="album-cover" src="@Url.CoursIconPath(newArrival.CovertFileName)" />
+					<h1>
+						@newArrival.AuthorName - @newArrival.CourseTitle
+					</h1>
+				</a>
+			</article>
+		</li>
 		}
 	</ul>
 </section>
