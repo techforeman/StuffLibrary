@@ -115,7 +115,7 @@ namespace Stuff_Library.Infrastructure
 			var cart = this.GetCart();
 
 			newOrder.DateCreated = DateTime.Now;
-			newOrder.UserID = userId;
+			//newOrder.UserId = userId;
 
 			this.db.Orders.Add(newOrder);
 

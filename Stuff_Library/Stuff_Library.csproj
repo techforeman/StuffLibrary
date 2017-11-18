@@ -402,7 +402,7 @@
     <Content Include="Views\Shared\_StoreLayout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Kontakt.cshtml" />
-    <Content Include="Views\Home\Info.cshtml" />
+    <Content Include="Views\Home\Onas.cshtml" />
     <Content Include="Views\Home\Regulamin.cshtml" />
     <Content Include="Views\Home\Odbior.cshtml" />
     <Content Include="Views\Store\List.cshtml" />

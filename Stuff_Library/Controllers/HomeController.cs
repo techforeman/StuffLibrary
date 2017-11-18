@@ -10,8 +10,8 @@ using Stuff_Library.Infrastructure;
 
 namespace Stuff_Library.Controllers
 {
-	public class HomeController : Controller
-	{
+    public class HomeController : Controller
+    {
 		private StoreContext db = new StoreContext();
 
 		// GET: Home
@@ -54,10 +54,10 @@ namespace Stuff_Library.Controllers
 
 
 		public ActionResult StaticContent(string viewname)
-		{
+        {
 			
-			return View(viewname);
-		}
+            return View(viewname);
+        }
 
 
 
