@@ -12,7 +12,7 @@ namespace Stuff_Library.DAL
 
 	public class StoreContext : IdentityDbContext<ApplicationUser>
 	{
-		public StoreContext():base ("StoreContext")
+		public StoreContext() : base("StoreContext")
 		{
 
 		}
