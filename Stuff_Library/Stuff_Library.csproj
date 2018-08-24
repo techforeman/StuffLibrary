@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -125,10 +124,6 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
@@ -227,51 +222,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Category-icons\Cdesktop.png" />
+    <Content Include="Content\Category-icons\Cweb.png" />
+    <Content Include="Content\Category-icons\Design.png" />
+    <Content Include="Content\Category-icons\HtmlCSSjs.png" />
+    <Content Include="Content\Category-icons\Others.png" />
+    <Content Include="Content\Category-icons\Python.png" />
+    <Content Include="Content\Category-icons\SelfDev.png" />
+    <Content Include="Content\Category-icons\SQL.png" />
+    <Content Include="Content\Category-icons\VBA.png" />
     <Content Include="Content\Covers\1.png" />
     <Content Include="Content\Covers\2.png" />
     <Content Include="Content\Covers\3.png" />
-    <Content Include="Content\Covers\4.jpg" />
     <Content Include="Content\Covers\5.png" />
-    <Content Include="Content\Covers\594358f0-3ef5-4920-b7c0-6d86c282df20.jpg" />
     <Content Include="Content\Covers\6.png" />
     <Content Include="Content\Covers\7.png" />
     <Content Include="Content\Covers\8.png" />
     <Content Include="Content\Covers\9.png" />
-    <Content Include="Content\Covers\aa9760ef-b6dc-4242-a788-2573cfc4732d.jpg" />
-    <Content Include="Content\Category-icons\alternative.png" />
-    <Content Include="Content\Category-icons\classics.png" />
-    <Content Include="Content\Category-icons\electro.png" />
-    <Content Include="Content\Category-icons\hiphop.png" />
-    <Content Include="Content\Category-icons\jazz.png" />
-    <Content Include="Content\Category-icons\metal.png" />
-    <Content Include="Content\Category-icons\other.png" />
-    <Content Include="Content\Category-icons\pop.png" />
-    <Content Include="Content\Category-icons\promos.png" />
-    <Content Include="Content\Category-icons\reagge.png" />
-    <Content Include="Content\Category-icons\rnb.png" />
-    <Content Include="Content\Category-icons\rock.png" />
     <Content Include="Content\Images\ajax-loader.gif" />
     <Content Include="Content\Images\ajax-loader.png" />
-    <Content Include="Content\Images\baner-main.png" />
     <Content Include="Content\Images\bestseller.png" />
     <Content Include="Content\Images\cart-details.png" />
     <Content Include="Content\Images\cart.png" />
     <Content Include="Content\Images\cart_white.png" />
-    <Content Include="Content\Images\fb-login.png" />
-    <Content Include="Content\Images\fb-share.png" />
-    <Content Include="Content\Images\fb_white.png" />
+    <Content Include="Content\Images\culture_512pxGREY.png" />
     <Content Include="Content\Images\footer-cd.png" />
-    <Content Include="Content\Images\google-login.png" />
     <Content Include="Content\Images\home-small.png" />
-    <Content Include="Content\Images\icons-18-black.png" />
-    <Content Include="Content\Images\icons-18-white.png" />
-    <Content Include="Content\Images\icons-36-black.png" />
-    <Content Include="Content\Images\icons-36-white.png" />
     <Content Include="Content\Images\new.png" />
     <Content Include="Content\Images\searchlogo.png" />
-    <Content Include="Content\Images\spodigly-logo-main.png" />
-    <Content Include="Content\Images\twitter-share.png" />
-    <Content Include="Content\Images\upload.png" />
+    <Content Include="Content\Images\stuffLibrary-logo-main.png" />
     <Content Include="Content\Site-prototype.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\accordion.css" />
@@ -316,6 +295,8 @@
     <Content Include="Prototype\OrdersList.html" />
     <Content Include="Prototype\Product-details.html" />
     <Content Include="Prototype\ProductList.html" />
+    <Content Include="Content\Images\newfile.zip" />
+    <None Include="Properties\PublishProfiles\Stuff_Library_Smart.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -375,6 +356,10 @@
     <Compile Include="Migrations\201710291224141_Order.cs" />
     <Compile Include="Migrations\201710291224141_Order.Designer.cs">
       <DependentUpon>201710291224141_Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711272038291_AddData.cs" />
+    <Compile Include="Migrations\201711272038291_AddData.Designer.cs">
+      <DependentUpon>201711272038291_AddData.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CartItem.cs" />
@@ -461,6 +446,9 @@
     <EmbeddedResource Include="Migrations\201710291224141_Order.resx">
       <DependentUpon>201710291224141_Order.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711272038291_AddData.resx">
+      <DependentUpon>201711272038291_AddData.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -492,7 +480,6 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

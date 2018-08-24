@@ -38,10 +38,7 @@ namespace Stuff_Library.DAL
 
 			var courses = new List<Course>
 			{
-				new Course() { CourseID = 1, AuthorName = "The Reds", CourseTitle = "More Way", CovertFileName = "1.png", IsBestVoted = true, DateAdded = new DateTime(2014, 02, 1), CategoryID = 1 },
-				new Course() { CourseID = 2, AuthorName = "Dillusion", CourseTitle = "All that nothing",  CovertFileName = "2.png", IsBestVoted = true, DateAdded = new DateTime(2013, 08, 15), CategoryID = 1 },
-				new Course() { CourseID = 3, AuthorName = "Allfor", CourseTitle = "Golden suffering",  CovertFileName = "3.png", IsBestVoted = true, DateAdded = new DateTime(2014, 01, 5), CategoryID = 3 },
-				new Course() { CourseID = 4, AuthorName = "Stasik", CourseTitle = "Pole samo się nie orze",  CovertFileName = "4.jpg", IsBestVoted = true, DateAdded = new DateTime(2014, 03, 11), CategoryID = 3 },
+	
 			};
 			courses.ForEach(a => context.Courses.AddOrUpdate(a));
 			context.SaveChanges();
